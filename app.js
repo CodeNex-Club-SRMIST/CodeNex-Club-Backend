@@ -7,6 +7,7 @@ const passport = require('passport');
 // Import routes
 const indexRouter = require('./routes/index');
 const authentication = require('./routes/Auth');
+const registrationRoutes = require('./routes/registrationRoutes');
 
 // Initialize the application
 const app = express();
@@ -30,5 +31,6 @@ app.use(passport.initialize());
 // Routes setup
 app.use('/api/v1/', indexRouter);
 app.use('/api/v1/auth', authentication);
+app.use('/api/v1/', registrationRoutes);
 
 module.exports = app;
