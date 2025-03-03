@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const registrationSchema = new mongoose.Schema(
+const registrationSchema = new Schema(
   {
     eventId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       required: true,
       ref: "Event",
     },
     userId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       required: true,
       ref: "User",
     },
@@ -21,8 +22,6 @@ const registrationSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
-registrationSchema.index({ eventId: 1, userId: 1 }, { unique: true });
 
 const RegistrationModel = mongoose.model("Registration", registrationSchema);
 
