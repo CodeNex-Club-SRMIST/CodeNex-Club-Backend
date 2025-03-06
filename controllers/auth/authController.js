@@ -46,7 +46,7 @@ exports.login = async (req, res) => {
  * - Verifies token in the Authorization header
  */
 exports.checkAuth = (req, res) => {
-  const token = req.headers.authorization?.split(" ")[1];
+  const token = req.headers.authorization.split(" ")[1];
   if (!token) return sendErrorResponse(res, 401, "User not authenticated");
 
   try {
